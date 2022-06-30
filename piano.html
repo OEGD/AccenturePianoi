@@ -1,0 +1,298 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  ul {
+    height: 18.875em;
+    width: 34em;
+    margin: 5em auto;
+    padding: 3em 0 0 3em;
+    position: relative;
+    border: 1px solid #160801;
+    border-radius: 1em;
+    background: #460073;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5) inset,
+      0 1px rgba(212, 152, 125, 0.2) inset, 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    float: left;
+  }
+
+  ul .white {
+    height: 16em;
+    width: 4em;
+    z-index: 1;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    border-radius: 0 0 5px 5px;
+    box-shadow: -1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 0 5px #ccc inset,
+      0 0 3px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, #eee 0%, #fff 100%);
+  }
+
+  ul .white:active {
+    border-top: 1px solid #777;
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #999;
+    box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset,
+      -5px 5px 20px rgba(0, 0, 0, 0.2) inset, 0 0 3px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
+  }
+
+  .black {
+    height: 8em;
+    width: 2em;
+    margin: 0 0 0 -1em;
+    z-index: 2;
+    border: 1px solid #000;
+    border-radius: 0 0 3px 3px;
+    box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset,
+      0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #222 0%, #555 100%);
+  }
+
+  .black:active {
+    box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset,
+      0 -2px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to right, #444 0%, #222 100%);
+  }
+
+  .a,
+  .g,
+  .f,
+  .d,
+  .c {
+    margin: 0 0 0 -1em;
+  }
+
+  ul li:first-child {
+    border-radius: 5px 0 5px 5px;
+  }
+
+  ul li:last-child {
+    border-radius: 0 5px 5px 5px;
+  }
+  .digits-container {
+    display: flex;
+    justify-content: center;
+  }
+  .digits-count {
+    font-size: 38px;
+  }
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .modal-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    width: 60vw;
+  }
+
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .back {
+    color: #aaaaaa;
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .back:hover,
+  .back:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  .plan {
+    position: relative;
+  }
+  .plan div {
+    display: block;
+    position: absolute;
+    /*background-color: blue;*/
+  }
+  .plan img {
+    width: 100%;
+  }
+  .lageImg {
+    width: 60vw;
+  }
+</style>
+
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div id="mmAll" class="plan">
+      <img
+        class="lageImg"
+        src="https://static.wixstatic.com/media/f397c8_58ce5e4ec56143998bdb8a2229b38b26~mv2.jpg"
+      />
+      <div
+        id="close"
+        style="top: 3%; left: 88%; width: 10%; height: 15%; cursor: pointer"
+      >
+      </div>
+    </div>
+  </div>
+</div>
+
+  <ul class="set">
+    <li class="white e" onclick="pianoPress('c')"></li>
+    <li class="black ds"></li>
+    <li class="white d" onclick="pianoPress('d')"></li>
+    <li class="black cs"></li>
+    <li class="white c" onclick="pianoPress('e')"></li>
+    <li class="white b" onclick="pianoPress('f')"></li>
+    <li class="black as"></li>
+    <li class="white a" onclick="pianoPress('g')"></li>
+    <li class="black gs"></li>
+    <li class="white g" onclick="pianoPress('a')"></li>
+    <li class="black fs"></li>
+    <li class="white f" onclick="pianoPress('b')"></li>
+  </ul>
+  <div class="digits-container">
+    <span id="digits" class="digits-count"></span>
+  </div>
+  <script>
+    let hbd = "";
+    var digitsCount = document.getElementById("digits");
+    var audioc = new Audio(
+      "https://static.wixstatic.com/mp3/f397c8_641d8156d5f84d0d88414a359115764a.mp3"
+    );
+    var audiod = new Audio(
+      "https://static.wixstatic.com/mp3/f397c8_1c08021fed20469aa31e3d7606936cab.mp3"
+    );
+    var audioe = new Audio(
+      "https://static.wixstatic.com/mp3/f397c8_fc6255aa9548417487e337a13cb1fc44.mp3"
+    );
+    var audiof = new Audio(
+      "https://static.wixstatic.com/mp3/f397c8_81e3e63b5ffe4c50932d0fa97b4511d8.mp3"
+    );
+    var audiog = new Audio(
+      "https://static.wixstatic.com/mp3/f397c8_50baccd9d8264e3a86eec0ae1137f824.mp3"
+    );
+    var audioa = new Audio(
+      "https://static.wixstatic.com/mp3/f397c8_9cbd2a2f56d94a8692ecdb658335f8ea.mp3"
+    );
+    var audiob = new Audio(
+      "https://static.wixstatic.com/mp3/f397c8_dba57194d45b4a1aacf8429c4e155ee5.mp3"
+    );
+
+    var imgc =
+      "https://static.wixstatic.com/media/f397c8_db2ced12d172493f9b3e912829a2ab6e~mv2.png";
+    var imgd =
+      "https://static.wixstatic.com/media/f397c8_174ff9ca39b4420d80a9bd726401ecef~mv2.png";
+    var imge =
+      "https://static.wixstatic.com/media/f397c8_a9d51b7755784a95a469886c89c3372d~mv2.png";
+    var imgf =
+      "https://static.wixstatic.com/media/f397c8_0bb872d8c9f24a53918e0b3398877528~mv2.png";
+    var imgg =
+      "https://static.wixstatic.com/media/f397c8_1956397a4ba84678b5308b5d2951458f~mv2.png";
+    var imga =
+      "https://static.wixstatic.com/media/f397c8_90ebd7674f5f4d70b63d07ddbf5bb73a~mv2.png";
+    var imgb =
+      "https://static.wixstatic.com/media/f397c8_3284d4ed7d5f476db84647fdcdc1a380~mv2.png";
+
+    var lastAudio = "";
+
+    function pianoPress(key) {
+      if (lastAudio != "") {
+        window[lastAudio].pause();
+        window[lastAudio].currentTime = 0;
+      }
+      if (
+        key == "c" ||
+        key == "d" ||
+        key == "e" ||
+        key == "f" ||
+        key == "g" ||
+        key == "a" ||
+        key == "b"
+      ) {
+        playSound("audio" + key);
+      }
+      hbd = hbd + key;
+
+      var elem = document.createElement("img");
+      digitsCount.appendChild(elem);
+
+      imgKey = "img" + key;
+      elem.src = window[imgKey];
+
+      if (hbd.length == 6) {
+        if (hbd == "ddedgf") {
+          setTimeout(function () {
+            hbd = "";
+            digitsCount.innerHTML = "";
+          }, 500);
+          window.open("https://www.online-escape-games.de/intern-4-asdw12");
+        }else{
+          openModal();
+        }
+      }
+    }
+    function playSound(key) {
+      window[key].play();
+      lastAudio = key;
+    }
+
+    var modal = document.getElementById("myModal");
+
+    var span = document.getElementsByClassName("close")[0];
+
+    function openModal() {
+      modal.style.display = "block";
+    };
+
+    var close = document.getElementById("close");
+    close.onclick = function () {
+      modal.style.display = "none";
+      hbd = "";
+      digitsCount.innerHTML = "";
+    };
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        hbd = "";
+        digitsCount.innerHTML = "";
+      }
+    };
+  </script>
+</div>
